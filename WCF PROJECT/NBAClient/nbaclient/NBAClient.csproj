@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5BF23460-2000-45D0-9364-E36979E7BD0B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NBAClient</RootNamespace>
+    <AssemblyName>NBAClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WcfDuplexServiceInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NBAServer\WcfDuplexServiceInterface\bin\Debug\WcfDuplexServiceInterface.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAddGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddGame.Designer.cs">
+      <DependentUpon>FormAddGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddManager.Designer.cs">
+      <DependentUpon>FormAddManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddPlayer.Designer.cs">
+      <DependentUpon>FormAddPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAllTimeWinners.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAllTimeWinners.Designer.cs">
+      <DependentUpon>FormAllTimeWinners.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeletePlayerAndManagers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeletePlayerAndManagers.Designer.cs">
+      <DependentUpon>FormDeletePlayerAndManagers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOneOnOne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOneOnOne.Designer.cs">
+      <DependentUpon>FormOneOnOne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegister.Designer.cs">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearches.Designer.cs">
+      <DependentUpon>FormSearches.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectPlayers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectPlayers.Designer.cs">
+      <DependentUpon>FormSelectPlayers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSquads.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSquads.Designer.cs">
+      <DependentUpon>FormSquads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTable.Designer.cs">
+      <DependentUpon>FormTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegexValidations.cs" />
+    <Compile Include="UpdatedListEventArgs.cs" />
+    <Compile Include="WcfDuplexCallBack.cs" />
+    <Compile Include="WcfDuplexServiceClient.cs" />
+    <EmbeddedResource Include="FormAddGame.resx">
+      <DependentUpon>FormAddGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddManager.resx">
+      <DependentUpon>FormAddManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddPlayer.resx">
+      <DependentUpon>FormAddPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAllTimeWinners.resx">
+      <DependentUpon>FormAllTimeWinners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeletePlayerAndManagers.resx">
+      <DependentUpon>FormDeletePlayerAndManagers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOneOnOne.resx">
+      <DependentUpon>FormOneOnOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearches.resx">
+      <DependentUpon>FormSearches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectPlayers.resx">
+      <DependentUpon>FormSelectPlayers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSquads.resx">
+      <DependentUpon>FormSquads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTable.resx">
+      <DependentUpon>FormTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

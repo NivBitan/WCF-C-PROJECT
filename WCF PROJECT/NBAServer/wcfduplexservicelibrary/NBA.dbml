@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NBA_DBase13" Class="NBADataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\databases\NBA_DBase13.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="WCFDuplexServiceLibrary.Properties.Settings" SettingsPropertyName="NBA_DBase13ConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="" Member="Managers">
+    <Type Name="Managers">
+      <Column Name="ManagerName" Type="System.String" CanBeNull="false" />
+      <Column Name="TeamName" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Age" Type="System.Int32" CanBeNull="false" />
+      <Column Name="ExperienceYears" Type="System.Int32" CanBeNull="false" />
+      <Column Name="NumberOfTitles" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Teams_Managers" Member="Teams" ThisKey="TeamName" OtherKey="TeamName" Type="Teams" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Teams">
+    <Type Name="Teams">
+      <Column Name="TeamName" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Region" Type="System.String" CanBeNull="false" />
+      <Column Name="Arena" Type="System.String" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" CanBeNull="false" />
+      <Column Name="Championships" Type="System.Int32" CanBeNull="false" />
+      <Column Name="Wins" Type="System.Int32" CanBeNull="false" />
+      <Column Name="Losses" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Teams_Managers" Member="Managers" ThisKey="TeamName" OtherKey="TeamName" Type="Managers" Cardinality="One" />
+      <Association Name="Teams_Players" Member="Players" ThisKey="TeamName" OtherKey="TeamName" Type="Players" />
+      <Association Name="Teams_Games" Member="Games" ThisKey="TeamName" OtherKey="HomeTeam" Type="Games" />
+      <Association Name="Teams_Games1" Member="Games1" ThisKey="TeamName" OtherKey="AwayTeam" Type="Games" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Games">
+    <Type Name="Games">
+      <Column Name="HomeTeam" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AwayTeam" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HomeTeamScore" Type="System.Int32" CanBeNull="false" />
+      <Column Name="AwayTeamScore" Type="System.Int32" CanBeNull="false" />
+      <Column Name="Fixture" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GameDate" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="MVP" Type="System.String" CanBeNull="false" />
+      <Association Name="Teams_Games" Member="Teams" ThisKey="HomeTeam" OtherKey="TeamName" Type="Teams" IsForeignKey="true" />
+      <Association Name="Teams_Games1" Member="Teams1" ThisKey="AwayTeam" OtherKey="TeamName" Type="Teams" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Users">
+    <Type Name="Users">
+      <Column Name="UserName" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Players" Member="Players">
+    <Type Name="Players">
+      <Column Name="PlayerName" Type="System.String" DbType="NVarChar(4000) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TeamName" Type="System.String" DbType="NVarChar(4000) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NumberOfTitles" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Height" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="ExeperienceYears" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MVP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Member="Picture" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Member="AgentName" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Teams_Players" Member="Teams" ThisKey="TeamName" OtherKey="TeamName" Type="Teams" IsForeignKey="true" />
+      <Association Name="Agents_Players" Member="Agents" ThisKey="AgentName" OtherKey="AgentName" Type="Agents" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Agents">
+    <Type Name="Agents">
+      <Column Member="AgentName" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Member="Age" Type="System.String" CanBeNull="false" />
+      <Column Member="Popularity" Type="System.String" CanBeNull="false" />
+      <Column Member="City" Type="System.String" CanBeNull="false" />
+      <Column Member="Phone" Type="System.String" CanBeNull="false" />
+      <Association Name="Agents_Players" Member="Players" ThisKey="AgentName" OtherKey="AgentName" Type="Players" />
+    </Type>
+  </Table>
+</Database>
